@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dev.finance$</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+
+
+<body>
+
+  <header>
+    <img src="./assets/logo.svg" alt="logo-dev.finance">
+  </header>
+
+  <main class="container">
+    <section id="balance">
+      <h2 class="sr-only">Balanço</h2>
+
+      <div class="card">
+        <h3>
+          <span>
+            Entradas
+          </span>
+          <img src="./assets/income.svg" alt="Entradas">
+
+        </h3>
+        <p id="incomeDisplay">R$ 0,00</p>
+
+      </div>
+
+      <div class="card expanse">
+        <h3>
+          <span>
+            Saidas
+          </span>
+          <img src="./assets/expense.svg" alt="Saidas">
+
+        </h3>
+        <p id="expenseDisplay">R$ 0,00</p>
+
+      </div>
+
+      <div class="card total">
+        <h3>
+          <span>
+            Total
+          </span>
+          <img src="./assets/total.svg" alt="Total">
+
+        </h3>
+        <p id="totalDisplay">R$ 0,00</p>
+      </div>
+
+    </section>
+    
+    <!--New Feature-->
+
+    <section id="goals">
+      <h2 class="sr-only">Metas</h2>
+
+      <a href="#" onclick="Modal.toggleGoals()" class="button new-goals">+ Cadastrar Meta</a>
+
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th class="value">Meta</th>
+            <th class="value">Arrecadado</th>
+            <th class="value">Faltante</th>
+            <th class="value">Economia p/ dia</th>
+            <th class="date">Dias Restantes</th>
+            <th class="date">Prazo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </section>
+
+    <!--New Feature-->
+
+    <section id="transactions">
+      <h2 class="sr-only">Transações</h2>
+
+      <a href="#" onclick="Modal.toggleTransaction()" class="button new-transaction">+ Nova Transação</a>
+
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th class="value">Valor</th>
+            <th class="date">Data</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+      </table>
+    </section>
+
+    
+  </main>
+
+  <div class="modal-overlay">
+    <div class="modal">
+      <div id="form">
+        <h2>Nova Transação</h2>
+        <form action="" onsubmit="Form.submit(event)">
+          <div class="input-group">
+            <label class="sr-only " for="description">Descrição</label>
+            <input type="text" id="description" name="description" placeholder="Descrição" />
+          </div>
+
+          <div class="input-group">
+            <label class="sr-only " for="amount">Valor</label>
+            <input type="number" step="0.01" id="amount" name="amount" placeholder="0,00" />
+            <small>Use o sinal -(negativo) para despesas e, (vírgula) para casas decimais</small>
+          </div>
+
+          <div class="input-group">
+            <label class="sr-only " for="date">Data</label>
+            <input type="date" id="date" name="date" />
+          </div>
+
+          <div class="input-group actions">
+            <a href="#" onclick="Modal.toggleTransaction()" class="button cancel">Cancelar</a>
+            <button>Salvar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--New Feature-->
+
+  <div class="modal-overlay goals">
+    <div class="modal">
+      <div id="form">
+        <h2>Nova Meta</h2>
+        <form action="" onsubmit="goalsForm.submit(event)">
+          <div class="input-group">
+            <small>Digite o valor que deseja alcançar como meta:</small>
+            <label class="sr-only " for="amountgoals">Meta</label>
+            <input type="number" id="amountgoals" name="amountgoals" placeholder="0,00" />
+          </div>
+
+          <div class="input-group">
+            <small>Informe o prazo, até que data deseja alcançar esse valor? </small>
+            <label class="sr-only " for="deadline">Data</label>
+            <input type="date" id="deadline" name="deadline" />
+          </div>
+
+          <div class="input-group actions">
+            <a href="#" onclick="Modal.toggleGoals()" class="button cancel">Cancelar</a>
+            <button>Salvar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <p>dev.finance$</p>
+  </footer>
+
+
+  <script src= "./script.js" >
+  
+  </script>
+</body>
+
+</html>
